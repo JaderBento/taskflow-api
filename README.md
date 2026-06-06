@@ -1,11 +1,12 @@
 # TaskFlow API
 
-API de gerenciamento de tarefas desenvolvida com Python e FastAPI.
+API de gerenciamento de tarefas desenvolvida com Python, FastAPI e PostgreSQL, permitindo o gerenciamento persistente de tarefas através de operações CRUD.
 
 ## Tecnologias utilizadas
 
 - Python
 - FastAPI
+- PostgreSQL
 - Pydantic
 - Uvicorn
 
@@ -17,6 +18,7 @@ API de gerenciamento de tarefas desenvolvida com Python e FastAPI.
 - Marcar tarefa como concluída
 - Excluir tarefa
 - Documentação automática com Swagger
+- Persistência de dados com PostgreSQL
 
 ## Como executar
 
@@ -36,6 +38,23 @@ Acesse a documentação:
 
 ```text
 http://127.0.0.1:8000/docs
+```
+## Configuração do Banco de Dados
+
+Crie um banco PostgreSQL chamado:
+
+```sql
+CREATE DATABASE taskflow;
+```
+
+Crie a tabela:
+
+```sql
+CREATE TABLE tarefas (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    concluida BOOLEAN DEFAULT FALSE
+);
 ```
 
 ## Rotas disponíveis
@@ -80,7 +99,6 @@ DELETE /tarefas/1
 
 ## Próximas melhorias
 
-- Integração com PostgreSQL
 - Docker
 - GitHub Actions
 - Testes automatizados
