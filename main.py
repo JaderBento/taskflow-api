@@ -8,7 +8,7 @@ conexao = psycopg2.connect(
     host="127.0.0.1",
     database="TaskFlow",
     user="postgres",
-    password="sua_senha",
+    password="neca28",
     port="5432"
 )
 
