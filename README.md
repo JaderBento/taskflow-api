@@ -1,47 +1,58 @@
 # TaskFlow API
 
-API de gerenciamento de tarefas desenvolvida com Python, FastAPI e PostgreSQL, permitindo o gerenciamento persistente de tarefas através de operações CRUD.
+API REST para gerenciamento de tarefas desenvolvida com Python, FastAPI e PostgreSQL, permitindo o gerenciamento persistente de tarefas através de operações CRUD.
 
-## Tecnologias utilizadas
+## Tecnologias Utilizadas
 
-- Python
-- FastAPI
-- PostgreSQL
-- Pydantic
-- Uvicorn
+* Python
+* FastAPI
+* PostgreSQL
+* Pydantic
+* Uvicorn
+* Pytest
+* GitHub Actions
 
 ## Funcionalidades
 
-- Criar tarefas
-- Listar tarefas
-- Buscar tarefa por ID
-- Marcar tarefa como concluída
-- Excluir tarefa
-- Documentação automática com Swagger
-- Persistência de dados com PostgreSQL
+* Criar tarefas
+* Listar tarefas
+* Buscar tarefa por ID
+* Marcar tarefa como concluída
+* Excluir tarefas
+* Documentação automática com Swagger
+* Persistência de dados com PostgreSQL
 
-## Como executar
+## Testes Automatizados
 
-Instale as dependências:
+O projeto possui testes automatizados utilizando Pytest para validar as principais funcionalidades da API.
+
+## Integração Contínua
+
+Os testes são executados automaticamente através do GitHub Actions a cada novo push realizado no repositório.
+
+## Como Executar
+
+### Instalar dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Execute a API:
+### Executar a API
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Acesse a documentação:
+### Acessar a documentação
 
 ```text
 http://127.0.0.1:8000/docs
 ```
+
 ## Configuração do Banco de Dados
 
-Crie um banco PostgreSQL chamado:
+Crie o banco de dados:
 
 ```sql
 CREATE DATABASE taskflow;
@@ -57,7 +68,7 @@ CREATE TABLE tarefas (
 );
 ```
 
-## Rotas disponíveis
+## Rotas Disponíveis
 
 ### Criar tarefa
 
@@ -82,23 +93,38 @@ GET /tarefas
 ### Buscar tarefa por ID
 
 ```http
-GET /tarefas/1
+GET /tarefas/{id}
 ```
 
 ### Concluir tarefa
 
 ```http
-PUT /tarefas/1/concluir
+PUT /tarefas/{id}/concluir
 ```
 
 ### Excluir tarefa
 
 ```http
-DELETE /tarefas/1
+DELETE /tarefas/{id}
 ```
 
-## Próximas melhorias
+## Estrutura do Projeto
 
-- Docker
-- GitHub Actions
-- Testes automatizados
+```text
+TaskFlow
+├── main.py
+├── tests
+│   └── test_api.py
+├── requirements.txt
+├── README.md
+└── .github
+    └── workflows
+        └── tests.yml
+```
+
+## Próximas Melhorias
+
+* Docker
+
+```
+```
