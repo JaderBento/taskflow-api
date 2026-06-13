@@ -1,6 +1,6 @@
 # TaskFlow API
 
-API REST para gerenciamento de tarefas desenvolvida com Python, FastAPI e PostgreSQL, permitindo o gerenciamento persistente de tarefas através de operações CRUD.
+API REST para gerenciamento de tarefas desenvolvida com Python, FastAPI e PostgreSQL, utilizando Docker para containerização, testes automatizados com Pytest e integração contínua com GitHub Actions.
 
 ## Tecnologias Utilizadas
 
@@ -10,6 +10,7 @@ API REST para gerenciamento de tarefas desenvolvida com Python, FastAPI e Postgr
 * Pydantic
 * Uvicorn
 * Pytest
+* Docker
 * GitHub Actions
 
 ## Funcionalidades
@@ -21,6 +22,8 @@ API REST para gerenciamento de tarefas desenvolvida com Python, FastAPI e Postgr
 * Excluir tarefas
 * Documentação automática com Swagger
 * Persistência de dados com PostgreSQL
+* Testes automatizados
+* Execução em containers Docker
 
 ## Testes Automatizados
 
@@ -32,19 +35,37 @@ Os testes são executados automaticamente através do GitHub Actions a cada novo
 
 ## Como Executar
 
-### Instalar dependências
+### Método 1 - Execução Local
+
+Instale as dependências:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Executar a API
+Execute a API:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-### Acessar a documentação
+Acesse a documentação:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+---
+
+### Método 2 - Execução com Docker
+
+Execute:
+
+```bash
+docker compose up --build
+```
+
+Acesse a documentação:
 
 ```text
 http://127.0.0.1:8000/docs
@@ -113,18 +134,28 @@ DELETE /tarefas/{id}
 ```text
 TaskFlow
 ├── main.py
-├── tests
-│   └── test_api.py
+├── Dockerfile
+├── docker-compose.yml
+├── init.sql
 ├── requirements.txt
 ├── README.md
+├── tests
+│   └── test_api.py
 └── .github
     └── workflows
         └── tests.yml
 ```
 
-## Próximas Melhorias
+## Aprendizados
 
-* Docker
+Durante o desenvolvimento deste projeto foram aplicados conceitos de:
+
+* Desenvolvimento de APIs REST
+* Integração com banco de dados PostgreSQL
+* Testes automatizados com Pytest
+* Integração contínua com GitHub Actions
+* Containerização com Docker
+* Controle de versão com Git e GitHub
 
 ```
 ```
