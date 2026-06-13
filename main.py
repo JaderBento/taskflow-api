@@ -1,15 +1,16 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import psycopg2
+import os
 
 app = FastAPI()
 
 conexao = psycopg2.connect(
-    host="127.0.0.1",
-    database="TaskFlow",
-    user="postgres",
-    password="sua_senha",
-    port="5432"
+    host=os.getenv("DB_HOST", "127.0.0.1"),
+    database=os.getenv("DB_NAME", "TaskFlow"),
+    user=os.getenv("DB_USER", "postgres"),
+    password=os.getenv("DB_PASSWORD", "sua_senha"),
+    port=os.getenv("DB_PORT", "5432")
 )
 
 cursor = conexao.cursor()
